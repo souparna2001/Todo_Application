@@ -6,11 +6,12 @@ class ToDoItem(models.Model):
     title=models.CharField(max_length=200)
     created_date=models.DateTimeField(auto_num_add=True)
     user=models.CharField(max_length=200)
-    options=(
+    options=( 
         ("completed","completed"),
         ("pending","pending"),
         ("inprogress","inprogress")
     )
     status=models.CharField(max_length=200,choices=options,default="pending")
 
-
+    def __str__(self):
+        return self.title
